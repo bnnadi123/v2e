@@ -41,6 +41,7 @@ from v2ecore.v2e_utils import inputVideoFileDialog
 import logging
 import time
 from typing import Optional, Any
+import math
 
 logging.basicConfig()
 root = logging.getLogger()
@@ -503,7 +504,7 @@ def main():
                     start_time, stop_time, (stop_time-start_time)))
 
         if exposure_mode == ExposureMode.DURATION:
-            dvsNumFrames = np.math.floor(
+            dvsNumFrames = np.floor(
                 dvsFps*srcDurationToBeProcessed/input_slowmotion_factor)
             dvsDuration = dvsNumFrames/dvsFps
             dvsPlaybackDuration = dvsNumFrames/avi_frame_rate
